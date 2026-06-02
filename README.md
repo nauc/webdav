@@ -7,7 +7,7 @@ This module is a **modern Kotlin fork of the [sardine](https://github.com/lookfi
 #### Key Improvements Over Original Sardine
 *   **Kotlin First**: Completely rewritten in Kotlin, providing native null-safety and a more idiomatic API.
 *   **Coroutines Support**: All blocking network calls are replaced with asynchronous `suspend` functions. Operations are dispatched to `Dispatchers.IO` and are safe to call from any scope.
-*   **Modern Auth**: Enhanced OAuth2 support with automatic token refresh mechanisms, optimized for cloud storage providers such as Yandex.Disk.
+*   **Modern Auth**: Enhanced OAuth2 support with automatic token refresh mechanisms, optimized for cloud storage providers.
 
 #### Features
 *   **Full CRUD Lifecycle**: Support for Upload (`PUT`), Download (`GET`), Delete (`DELETE`), Copy, and Move operations.
