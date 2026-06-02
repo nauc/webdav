@@ -41,3 +41,5 @@ lifecycleScope.launch {
     }
 }
 ```
+
+This library is extracted from and actively maintained as part of the HoggieMap project - a high-performance offline GIS and navigation ecosystem for Android.
