@@ -179,7 +179,7 @@ object DavXmlBuilder {
 
     private fun xmlDecl() = """<?xml version="1.0" encoding="utf-8"?>"""
 
-    /** Builds a namespace-prefix map, always including DAV: → D */
+    /** Builds a namespace-prefix map, always including DAV: -> D */
     private fun buildNsMap(qnames: List<QName>): MutableMap<String, String> {
         val map = mutableMapOf(DAV_NS to DAV_PREFIX)
         var counter = 1
