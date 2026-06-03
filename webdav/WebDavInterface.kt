@@ -167,7 +167,7 @@ interface WebDavInterface {
 
     /**
      * Returns `true` when a HEAD request to [url] returns 2xx, `false` on 404.
-     * Throws [com.hoggie.hoggiemap.webdav.exception.WebDavException] on other errors.
+     * Throws [com.webdav.exception.WebDavException] on other errors.
      */
     suspend fun exists(url: String): Boolean
 
