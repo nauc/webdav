@@ -51,7 +51,7 @@ class DavResource private constructor(
         private const val SEPARATOR = "/"
 
         /**
-         * Converts a [ParsedDavResponse] (from [com.hoggie.hoggiemap.webdav.xml.DavXmlParser])
+         * Converts a [ParsedDavResponse] (from [com.webdav.xml.DavXmlParser])
          * into a [DavResource]. Logs a warning and returns null when the href is not a valid URI.
          */
         internal fun fromParsedResponse(parsed: ParsedDavResponse): DavResource? {
