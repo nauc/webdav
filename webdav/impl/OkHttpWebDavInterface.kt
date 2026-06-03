@@ -181,10 +181,8 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
             .build()
     }
 
-    // -----------------------------------------------------------------------
     // Factory helpers
-    // -----------------------------------------------------------------------
-
+    
     companion object {
 
         /** Base URL for Yandex Disk WebDAV. */
@@ -367,7 +365,7 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
      * If [destination] already exists (partial download), the method sends a
      * `Range: bytes=<size>-` header and **appends** the remaining bytes.
      * The file is overwritten from scratch when the server returns `200` (no Range support).
-     * HTTP `416 Range Not Satisfiable` means the file is already complete — the method
+     * HTTP `416 Range Not Satisfiable` means the file is already complete - the method
      * returns without downloading anything.
      *
      * Combine with [enableRetry] for fully resilient downloading:
@@ -381,7 +379,7 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
      * @param url         Remote resource URL.
      * @param destination Local file to write into (created if absent, appended to if partial).
      * @param onProgress  Optional callback invoked after each buffer write:
-     *                    `(bytesWritten, totalExpected)`. `totalExpected` is −1 when the
+     *                    `(bytesWritten, totalExpected)`. `totalExpected` is -1 when the
      *                    server does not provide a Content-Length.
      */
     suspend fun download(
@@ -434,7 +432,7 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
      * regular full PUT (safe fallback).
      *
      * ### How resume works
-     * 1. Call `putResumable(url, file, …, offset = 0)` to start.
+     * 1. Call `putResumable(url, file, ..., offset = 0)` to start.
      * 2. If the connection drops at byte N, catch the IOException and call again
      *    with `offset = N` (or query the server with a HEAD to learn the current size).
      * 3. The method sends `Content-Range: bytes <offset>-<last>/<total>` so the
@@ -513,7 +511,7 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
         putInternal(url, data.toRequestBody(mediaType), Headers.headersOf())
     }
 
-    // PUT (File) — streaming, no full buffer in RAM
+    // PUT (File) - streaming, no full buffer in RAM
 
     override suspend fun put(
         url: String,
@@ -536,13 +534,13 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
         putInternal(url, requestBody, headersBuilder.build())
     }
 
-    // PUT (InputStream) — true streaming upload
+    // PUT (InputStream) - true streaming upload
 
     /**
      * Streams [stream] directly to the server via OkHttp's [BufferedSink],
      * avoiding loading the entire content into memory.
      *
-     * @param contentLength Content-Length in bytes, or −1 for chunked transfer.
+     * @param contentLength Content-Length in bytes, or -1 for chunked transfer.
      */
     override suspend fun put(
         url: String,
@@ -568,7 +566,7 @@ class OkHttpWebDavInterface @JvmOverloads constructor(
      * Reads [input] in chunks, writes to [output], and invokes [onProgress] after each write.
      *
      * @param alreadyWritten Bytes already on disk before this call (for resume; 0 on fresh download).
-     * @param total          Expected total file size in bytes, or −1 if unknown.
+     * @param total          Expected total file size in bytes, or -1 if unknown.
      */
     private fun pipeWithProgress(
         input: InputStream,
