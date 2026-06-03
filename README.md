@@ -1,5 +1,4 @@
 # webdav
- WebDAV Client Module
 ### WebDAV Client Module (`com.webdav`)
 
 This module is a **modern Kotlin fork of the [sardine](https://github.com/lookfirst/sardine/tree/master) library**, specifically redesigned for the Android ecosystem. It retains the robust logic of the original WebDAV protocol implementation while upgrading the entire stack to modern development standards.
