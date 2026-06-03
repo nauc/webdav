@@ -126,7 +126,7 @@ class DavResource private constructor(
         private fun parseStatusCode(statusLine: String?): Int {
             if (statusLine.isNullOrEmpty()) return DEFAULT_STATUS_CODE
             return try {
-                // "HTTP/1.1 200 OK" → take second token
+                // "HTTP/1.1 200 OK" -> take second token
                 statusLine.split(" ").getOrNull(1)?.toInt() ?: DEFAULT_STATUS_CODE
             } catch (_: NumberFormatException) {
                 log.warning("Failed to parse status line: $statusLine")
